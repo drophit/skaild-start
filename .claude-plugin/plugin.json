@@ -1,0 +1,9 @@
+{
+  "name": "skaild-start",
+  "version": "0.0.1",
+  "description": "Session entry point with skAIld banner. Ships the skAIld SessionStart hook and the /start skill: environment checks, git state, installed-plugin detection, workflow router. Free foundation plugin — installed by default with any skAIld paid plugin.",
+  "author": {
+    "name": "drophit",
+    "url": "https://skaild.com"
+  }
+}
