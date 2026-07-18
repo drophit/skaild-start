@@ -1,0 +1,42 @@
+{
+  "$schema": "https://skaild.com/schema/project.config.v1.json",
+  "project": {
+    "name": "My Project"
+  },
+  "migrations": {
+    "runner_cmd": null,
+    "_comment": "Shell command to apply pending DB migrations. Examples: 'bash run_migrations.sh' | 'npx prisma migrate deploy' | 'npm run db:migrate'. Null = skip migration step."
+  },
+  "predeploy": {
+    "hard_gate_cmds": [],
+    "_comment": "Fast, deterministic guards /pre-deploy runs (Step 3.6) before the delta review + E2E suite. Each entry is a shell command; a non-zero exit blocks the deploy. Examples: 'bash lib/deploy/db_compat_lint.sh' (DB-version syntax lint) | 'php bin/role_gate_check.php' (structural/security guard). Empty = skip."
+  },
+  "generated_dirs": [],
+  "_generated_dirs_comment": "Paths (relative to repo root) to silently 'git checkout --' on session start. For auto-regenerated files like Playwright screenshots or coverage reports. Example: ['admin/assets/walkthrough/', 'coverage/badge.svg']",
+  "worktrees": {
+    "path_template": ".worktrees/{name}",
+    "_comment": "Where new git worktrees are created. {name} is substituted with the branch-derived name. Default puts them inside the repo under .worktrees/ (add to .gitignore). Use a sibling path like '../{repo}-{name}' if your repo root must stay on the main branch (e.g. a live web root)."
+  },
+  "tickets": {
+    "key_pattern": null,
+    "url_template": null,
+    "launch_gate_label": null,
+    "_comment": "Optional issue-tracker integration. key_pattern is a regex matching branch names (e.g. 'ACME-[0-9]+'). url_template uses {key} substitution (e.g. 'https://acme.atlassian.net/browse/{key}'). launch_gate_label is the label your team puts on launch-blocking tickets (e.g. 'launch-gating'); /pre-deploy Step 3.5 queries it directly so an unstarted blocker halts the gate. Null = that feature off."
+  },
+  "whats_new": {
+    "format": "markdown",
+    "target_path": "WHATS_NEW.md",
+    "target_cmd": null,
+    "_comment": "format: 'markdown' (append to target_path), 'json' (write JSON array to target_path), or 'custom' (pipe generated content to target_cmd, useful for INSERT-into-DB flows)."
+  },
+  "serve": {
+    "cmd": null,
+    "_comment": "Command to serve the current worktree locally for browser testing (e.g. 'npm run dev', or a script that points your local server at this checkout). Null = the serve-worktree skill skips serving and just reports."
+  },
+  "slack": {
+    "notify_user_id": null,
+    "_comment": "Optional Slack DM on PR open/update/merge. notify_user_id is your Slack member id (e.g. 'U01ABC2DEF' — find it via your Slack profile > 'Copy member ID'). Requires the claude.ai Slack connector to be authenticated in your Claude so the slack_send_message tool is available; /create-pr sends the DM best-effort and never blocks on failure. Null = Slack notifications off."
+  },
+  "critical_paths": [],
+  "_critical_paths_comment": "Path prefixes that warrant extra review scrutiny (auth, payments, migrations). Used by review-pr/create-pr. Empty = no special-casing."
+}
